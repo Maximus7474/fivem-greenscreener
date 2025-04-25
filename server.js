@@ -20,8 +20,8 @@ try {
 		exports['screenshot-basic'].requestClientScreenshot(
 			source,
 			{
-				fileName: savePath + '/' + filename + '.png',
-				encoding: 'png',
+				fileName: savePath + '/' + filename + '.webp',
+				encoding: 'webp',
 				quality: 1.0,
 			},
 			async (err, fileName) => {
