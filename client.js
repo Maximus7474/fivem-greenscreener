@@ -13,7 +13,11 @@ const playerId = PlayerId();
 async function takeScreenshotForComponent(pedType, type, component, drawable, texture, cameraSettings) {
 	const cameraInfo = cameraSettings ? cameraSettings : config.cameraSettings[type][component];
 
+	console.log(typeof cameraInfo, cameraInfo)
+
 	setWeatherTime();
+
+	DisplayRadar(false);
 
 	await Delay(500);
 
@@ -53,6 +57,8 @@ async function takeScreenshotForComponent(pedType, type, component, drawable, te
 
 	emitNet('takeScreenshot', `${pedType}_${type == 'PROPS' ? 'prop_' : ''}${component}_${drawable}${texture ? `_${texture}`: ''}`, 'clothing');
 	await Delay(2000);
+
+	DisplayRadar(true);
 	return;
 }
 
