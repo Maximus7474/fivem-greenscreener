@@ -233,15 +233,15 @@ function stopWeatherResource() {
 
 function startWeatherResource() {
 	if (config.debug) console.log(`DEBUG: Starting Weather Resource again`);
-	if ((GetResourceState('qb-weathersync') == 'started') || (GetResourceState('qbx_weathersync') == 'started')) {
-		TriggerEvent('qb-weathersync:client:EnableSync');
-	} else if (GetResourceState('weathersync') == 'started') {
-		TriggerEvent('weathersync:toggleSync')
-	} else if (GetResourceState('cd_easytime') == 'started') {
-		TriggerEvent('cd_easytime:PauseSync', true)
-	} else if (GetResourceState('vSync') == 'started' || GetResourceState('Renewed-Weathersync') == 'started') {
-		TriggerEvent('vSync:toggle', true)
-	}
+	// if ((GetResourceState('qb-weathersync') == 'started') || (GetResourceState('qbx_weathersync') == 'started')) {
+	// 	TriggerEvent('qb-weathersync:client:EnableSync');
+	// } else if (GetResourceState('weathersync') == 'started') {
+	// 	TriggerEvent('weathersync:toggleSync')
+	// } else if (GetResourceState('cd_easytime') == 'started') {
+	// 	TriggerEvent('cd_easytime:PauseSync', true)
+	// } else if (GetResourceState('vSync') == 'started' || GetResourceState('Renewed-Weathersync') == 'started') {
+	// 	TriggerEvent('vSync:toggle', true)
+	// }
 }
 
 async function LoadComponentVariation(ped, component, drawable, texture) {
