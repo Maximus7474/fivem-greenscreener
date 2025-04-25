@@ -13,7 +13,7 @@ const playerId = PlayerId();
 async function takeScreenshotForComponent(pedType, type, component, drawable, texture, cameraSettings) {
 	const cameraInfo = cameraSettings ? cameraSettings : config.cameraSettings[type][component];
 
-	console.log(typeof cameraInfo, cameraInfo)
+	if (!cameraInfo) return;
 
 	setWeatherTime();
 
