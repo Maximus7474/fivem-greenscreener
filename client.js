@@ -64,6 +64,7 @@ async function takeScreenshotForComponent(pedType, type, component, drawable, te
 
 async function takeScreenshotForObject(object, hash) {
 
+	DisplayRadar(false);
 	setWeatherTime();
 
 	await Delay(500);
@@ -111,12 +112,14 @@ async function takeScreenshotForObject(object, hash) {
 	emitNet('takeScreenshot', `${hash}`, 'objects');
 
 	await Delay(2000);
+	DisplayRadar(true);
 
 	return;
 
 }
 
 async function takeScreenshotForVehicle(vehicle, hash, model) {
+	DisplayRadar(false);
 	setWeatherTime();
 
 	await Delay(500);
@@ -160,6 +163,7 @@ async function takeScreenshotForVehicle(vehicle, hash, model) {
 	emitNet('takeScreenshot', `${model}`, 'vehicles');
 
 	await Delay(2000);
+	DisplayRadar(true);
 
 	return;
 
