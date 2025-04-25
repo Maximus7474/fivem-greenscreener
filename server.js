@@ -50,6 +50,13 @@ try {
 			}
 		);
 	});
+
+	onNet('greenscreener:stopAllWeatherAndTime', () => {
+		GlobalState['weather'] = 'Extrasunny';
+		GlobalState['time.frozen'] = true;
+		GlobalState['time.hours'] = 12;
+		GlobalState['time.minutes'] = 0;
+	})
 } catch (error) {
 	console.error(error.message);
 }

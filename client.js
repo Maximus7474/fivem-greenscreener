@@ -200,6 +200,7 @@ async function ResetPedComponents() {
 
 function setWeatherTime() {
 	if (config.debug) console.log(`DEBUG: Setting Weather & Time`);
+	TriggerServerEvent('greenscreener:stopAllWeatherAndTime');
 	SetRainLevel(0.0);
 	SetWeatherTypePersist('EXTRASUNNY');
 	SetWeatherTypeNow('EXTRASUNNY');
@@ -210,24 +211,24 @@ function setWeatherTime() {
 
 function stopWeatherResource() {
 	if (config.debug) console.log(`DEBUG: Stopping Weather Resource`);
-	if ((GetResourceState('qb-weathersync') == 'started') || (GetResourceState('qbx_weathersync') == 'started')) {
-		TriggerEvent('qb-weathersync:client:DisableSync');
-		return true;
-	} else if (GetResourceState('weathersync') == 'started') {
-		TriggerEvent('weathersync:toggleSync')
-		return true;
-	} else if (GetResourceState('esx_wsync') == 'started') {
-		SendNUIMessage({
-			error: 'weathersync',
-		});
-		return false;
-	} else if (GetResourceState('cd_easytime') == 'started') {
-		TriggerEvent('cd_easytime:PauseSync', false)
-		return true;
-	} else if (GetResourceState('vSync') == 'started' || GetResourceState('Renewed-Weathersync') == 'started') {
-		TriggerEvent('vSync:toggle', false)
-		return true;
-	}
+	// if ((GetResourceState('qb-weathersync') == 'started') || (GetResourceState('qbx_weathersync') == 'started')) {
+	// 	TriggerEvent('qb-weathersync:client:DisableSync');
+	// 	return true;
+	// } else if (GetResourceState('weathersync') == 'started') {
+	// 	TriggerEvent('weathersync:toggleSync')
+	// 	return true;
+	// } else if (GetResourceState('esx_wsync') == 'started') {
+	// 	SendNUIMessage({
+	// 		error: 'weathersync',
+	// 	});
+	// 	return false;
+	// } else if (GetResourceState('cd_easytime') == 'started') {
+	// 	TriggerEvent('cd_easytime:PauseSync', false)
+	// 	return true;
+	// } else if (GetResourceState('vSync') == 'started' || GetResourceState('Renewed-Weathersync') == 'started') {
+	// 	TriggerEvent('vSync:toggle', false)
+	// 	return true;
+	// }
 	return true;
 };
 
