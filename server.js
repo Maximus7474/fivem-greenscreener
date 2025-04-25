@@ -5,7 +5,8 @@ const imagejs = require('image-js');
 const fs = require('fs');
 
 const resName = GetCurrentResourceName();
-const mainSavePath = `resources/${resName}/images`;
+const resPath = GetResourcePath(resName);
+const mainSavePath = `${resPath}/images`;
 
 try {
 	if (!fs.existsSync(mainSavePath)) {
