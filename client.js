@@ -9,11 +9,6 @@ let camInfo;
 let ped;
 let interval;
 const playerId = PlayerId();
-let QBCore = null;
-
-if (config.useQBVehicles) {
-	QBCore = exports[config.coreResourceName].GetCoreObject();
-}
 
 async function takeScreenshotForComponent(pedType, type, component, drawable, texture, cameraSettings) {
 	const cameraInfo = cameraSettings ? cameraSettings : config.cameraSettings[type][component];
@@ -620,7 +615,7 @@ RegisterCommand('screenshotobject', async (source, args) => {
 });
 
 RegisterCommand('screenshotvehicle', async (source, args) => {
-	const vehicles = (config.useQBVehicles && QBCore != null) ? Object.keys(QBCore.Shared.Vehicles) : GetAllVehicleModels();
+	const vehicles = GetAllVehicleModels();
 	const ped = PlayerPedId();
 	const type = args[0].toLowerCase();
 	const primarycolor = args[1] ? parseInt(args[1]) : null;
